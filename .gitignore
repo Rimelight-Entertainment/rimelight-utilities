@@ -1,3 +1,7 @@
+# Utilities
+.rimelight-utilities/
+!.rimelight-utilities
+
 # Outputs
 .output
 .data
