@@ -1,0 +1,13 @@
+{
+  "name": "rimelight-utilities",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rimelight-Entertainment/rimelight-utilities.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/node": "latest"
+  }
+}
