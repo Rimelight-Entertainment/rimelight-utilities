@@ -1,32 +1,37 @@
-import { copyFile } from "node:fs/promises";
+import { cp } from "node:fs/promises";
 import { join } from "node:path";
 
 const PROJECT_ROOT = process.cwd();
 const SHARED_ROOT = join(PROJECT_ROOT, ".rimelight-utilities");
 
 /**
- * Define sync mappings: { "source_in_utils": ["dest_in_root_1", "dest_in_root_2"] }
+ * Define sync mappings.
+ * Works for both files and directories.
  */
 const SYNC_CONFIG: Record<string, string[]> = {
+  "bunfig.toml": ["bunfig.toml"],
   ".gitignore": [".gitignore"],
   ".editorconfig": [".editorconfig"],
-  "bunfig.toml": ["bunfig.toml"],
   "AGENTS.md": ["CLAUDE.md", "CURSOR.md", ".cursorrules"],
+  ".husky": [".husky"],
+  "commitlint.config.ts": ["commitlint.config.ts"],
 };
 
 async function runSync() {
   console.log("🔄 Synchronizing shared workspace configurations...");
 
-  const entries = Object.entries(SYNC_CONFIG);
-
-  for (const [sourceName, destinations] of entries) {
+  for (const [sourceName, destinations] of Object.entries(SYNC_CONFIG)) {
     const sourcePath = join(SHARED_ROOT, sourceName);
 
     for (const destName of destinations) {
       const destPath = join(PROJECT_ROOT, destName);
 
       try {
-        await copyFile(sourcePath, destPath);
+        // 'cp' with recursive: true handles both files and folders
+        await cp(sourcePath, destPath, {
+          recursive: true,
+          force: true
+        });
         console.log(`✅ ${sourceName} -> ${destName}`);
       } catch (err) {
         const error = err as NodeJS.ErrnoException;
@@ -38,4 +43,7 @@ async function runSync() {
   console.log("✨ Sync complete.");
 }
 
-runSync();
+runSync().catch((err) => {
+  console.error("💥 Critical sync error:", err);
+  process.exit(1);
+});
