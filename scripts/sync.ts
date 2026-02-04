@@ -8,7 +8,8 @@ const SHARED_ROOT = join(PROJECT_ROOT, ".rimelight-utilities");
 
 const FILES_TO_SYNC = [
   ".gitignore",
-  ".editorconfig"
+  ".editorconfig",
+  "bunfig.toml"
 ];
 
 async function runSync() {
