@@ -1,31 +1,41 @@
 import { copyFile } from "node:fs/promises";
 import { join } from "node:path";
 
-// process.cwd() refers to the root of the project RUNNING the script
 const PROJECT_ROOT = process.cwd();
-// This assumes the submodule is always named .rimelight-utils
 const SHARED_ROOT = join(PROJECT_ROOT, ".rimelight-utilities");
 
-const FILES_TO_SYNC = [
-  ".gitignore",
-  ".editorconfig",
-  "bunfig.toml"
-];
+/**
+ * Define sync mappings: { "source_in_utils": ["dest_in_root_1", "dest_in_root_2"] }
+ */
+const SYNC_CONFIG: Record<string, string[]> = {
+  ".gitignore": [".gitignore"],
+  ".editorconfig": [".editorconfig"],
+  "bunfig.toml": ["bunfig.toml"],
+  "AGENTS.md": ["CLAUDE.md", "CURSOR.md", ".cursorrules"],
+};
 
 async function runSync() {
-  console.log("🔄 Syncing shared configs...");
+  console.log("🔄 Synchronizing shared workspace configurations...");
 
-  for (const file of FILES_TO_SYNC) {
-    try {
-      await copyFile(
-          join(SHARED_ROOT, file),
-          join(PROJECT_ROOT, file)
-      );
-      console.log(`✅ ${file} synced`);
-    } catch (err) {
-      console.warn(`⚠️  Could not sync ${file}:`, err.message);
+  const entries = Object.entries(SYNC_CONFIG);
+
+  for (const [sourceName, destinations] of entries) {
+    const sourcePath = join(SHARED_ROOT, sourceName);
+
+    for (const destName of destinations) {
+      const destPath = join(PROJECT_ROOT, destName);
+
+      try {
+        await copyFile(sourcePath, destPath);
+        console.log(`✅ ${sourceName} -> ${destName}`);
+      } catch (err) {
+        const error = err as NodeJS.ErrnoException;
+        console.warn(`⚠️  Failed to sync ${destName}: ${error.message}`);
+      }
     }
   }
+
+  console.log("✨ Sync complete.");
 }
 
 runSync();
