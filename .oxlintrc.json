@@ -13,6 +13,6 @@
     "rimelight/component-props-standard": "warn",
     "rimelight/component-emits-standard": "warn",
     "rimelight/iconify-standard-format": "warn",
-    "rimelight/vue-script-regions": "warn"
+    "rimelight/vue-sfc-structure": "warn"
   }
 }
