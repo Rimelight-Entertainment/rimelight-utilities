@@ -97,7 +97,7 @@ export const vueSfcStructure = {
           // Rebuild whole file because we have access to it
           finalOutput = `<script lang="ts" setup>\n${scriptInner.trim()}\n</script>\n\n<template>\n${templateGuts.trim() || "  <div></div>"}\n</template>\n\n<style scoped>\n${styleGuts.trim()}\n</style>\n`
         } else {
-          // We are inside the tag. ONLY return the guts with surrounding newlines.
+          // We are trapped inside the <script> tag. ONLY return the guts with surrounding newlines.
           finalOutput = `\n${scriptInner.trim()}\n`
         }
 

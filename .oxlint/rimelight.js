@@ -16,4 +16,3 @@ export default {
     "vue-sfc-structure": vueSfcStructure
   }
 }
-

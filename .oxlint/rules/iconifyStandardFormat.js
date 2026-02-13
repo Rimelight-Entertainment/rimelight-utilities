@@ -1,18 +1,3 @@
-/**
- * Rule: iconify-standard-format
- *
- * Rationale:
- * Enforces the use of 'prefix:name' format for Iconify icons instead of the 'i-prefix-name' shorthand.
- * This ensures compatibility with standard Iconify resolvers and improves searchability.
- *
- * Incorrect:
- * <Icon name="i-lucide-users" />
- * { icon: "i-mdi-account" }
- *
- * Correct:
- * <Icon name="lucide:users" />
- * { icon: "mdi:account" }
- */
 export const iconifyStandardFormat = {
   meta: {
     type: "suggestion",
@@ -44,7 +29,7 @@ export const iconifyStandardFormat = {
           data: { plugin: full },
           fix(fixer) {
             // Determine the original quoting style to preserve it
-            const raw = context.getSourceCode().getText(node)
+            const raw = context.sourceCode.getText(node)
             const quote = raw.startsWith("'") ? "'" : raw.startsWith("`") ? "`" : '"'
             return fixer.replaceText(node, `${quote}${newValue}${quote}`)
           }
