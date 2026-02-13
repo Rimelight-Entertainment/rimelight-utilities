@@ -1,6 +1,4 @@
-import {defineRule} from "oxlint"
-
-export const vueSfcStructure = defineRule({
+export const vueSfcStructure = {
   meta: {
     type: "layout",
     docs: {
@@ -116,4 +114,4 @@ export const vueSfcStructure = defineRule({
       }
     }
   }
-})
+}

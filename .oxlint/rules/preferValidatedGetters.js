@@ -1,5 +1,3 @@
-import { defineRule } from "oxlint"
-
 /**
  * Rule: prefer-validated-getters
  *
@@ -17,7 +15,7 @@ import { defineRule } from "oxlint"
  * const query = await getValidatedQuery(event, schema)
  * const body = await readValidatedBody(event, schema)
  */
-export const preferValidatedGetters = defineRule({
+export const preferValidatedGetters = {
   meta: {
     type: "suggestion",
     docs: {
@@ -59,4 +57,4 @@ export const preferValidatedGetters = defineRule({
       }
     }
   }
-})
+}

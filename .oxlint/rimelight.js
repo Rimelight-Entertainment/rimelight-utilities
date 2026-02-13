@@ -1,11 +1,10 @@
-import {definePlugin} from "oxlint"
-import {componentPropsStandard} from "./rules/componentPropsStandard.js"
-import {componentEmitsStandard} from "./rules/componentEmitsStandard.js"
-import {preferValidatedGetters} from "./rules/preferValidatedGetters.js"
-import {iconifyStandardFormat} from "./rules/iconifyStandardFormat.js"
-import {vueSfcStructure} from "./rules/vueSfcStructure.js"
+import { componentPropsStandard } from "./rules/componentPropsStandard.js"
+import { componentEmitsStandard } from "./rules/componentEmitsStandard.js"
+import { preferValidatedGetters } from "./rules/preferValidatedGetters.js"
+import { iconifyStandardFormat } from "./rules/iconifyStandardFormat.js"
+import { vueSfcStructure } from "./rules/vueSfcStructure.js"
 
-export default definePlugin({
+export default {
   meta: {
     name: "rimelight"
   },
@@ -16,4 +15,5 @@ export default definePlugin({
     "iconify-standard-format": iconifyStandardFormat,
     "vue-sfc-structure": vueSfcStructure
   }
-})
+}
+

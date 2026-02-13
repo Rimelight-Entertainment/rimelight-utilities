@@ -1,5 +1,3 @@
-import { defineRule } from "oxlint"
-
 /**
  * Rule: iconify-standard-format
  *
@@ -15,7 +13,7 @@ import { defineRule } from "oxlint"
  * <Icon name="lucide:users" />
  * { icon: "mdi:account" }
  */
-export const iconifyStandardFormat = defineRule({
+export const iconifyStandardFormat = {
   meta: {
     type: "suggestion",
     docs: {
@@ -72,4 +70,4 @@ export const iconifyStandardFormat = defineRule({
       }
     }
   }
-})
+}

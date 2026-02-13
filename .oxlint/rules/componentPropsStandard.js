@@ -1,5 +1,3 @@
-import {defineRule} from "oxlint"
-
 /**
  * Rule: component-props-standard
  *
@@ -21,7 +19,7 @@ import {defineRule} from "oxlint"
  * }
  * const { name = "Component" } = defineProps<MyComponentProps>()
  */
-export const componentPropsStandard = defineRule({
+export const componentPropsStandard = {
   meta: {
     type: "problem",
     docs: {
@@ -210,4 +208,4 @@ export const componentPropsStandard = defineRule({
       }
     }
   }
-})
+}

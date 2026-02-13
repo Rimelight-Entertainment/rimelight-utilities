@@ -1,5 +1,3 @@
-import {defineRule} from "oxlint"
-
 /**
  * Rule: component-emits-standard
  *
@@ -17,7 +15,7 @@ import {defineRule} from "oxlint"
  * }
  * const emit = defineEmits<MyComponentEmits>()
  */
-export const componentEmitsStandard = defineRule({
+export const componentEmitsStandard = {
   meta: {
     type: "problem",
     docs: {
@@ -128,4 +126,4 @@ export const componentEmitsStandard = defineRule({
       }
     }
   }
-})
+}
