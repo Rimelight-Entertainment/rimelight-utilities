@@ -1,23 +1,4 @@
-import { defineRule } from "oxlint"
-
-/**
- * Rule: prefer-validated-getters
- *
- * Rationale:
- * Using getQuery or readBody without validation bypasses type safety and can
- * lead to runtime errors if the input doesn't match expectations.
- * Nuxt provides getValidatedQuery and readValidatedBody to ensure inputs
- * match a schema (e.g., Zod).
- *
- * Incorrect:
- * const query = getQuery(event)
- * const body = await readBody(event)
- *
- * Correct:
- * const query = await getValidatedQuery(event, schema)
- * const body = await readValidatedBody(event, schema)
- */
-export const preferValidatedGetters = defineRule({
+export const preferValidatedGetters = {
   meta: {
     type: "suggestion",
     docs: {
@@ -59,4 +40,4 @@ export const preferValidatedGetters = defineRule({
       }
     }
   }
-})
+}

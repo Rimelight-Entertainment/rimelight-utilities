@@ -1,23 +1,4 @@
-import {defineRule} from "oxlint"
-
-/**
- * Rule: component-emits-standard
- *
- * Rationale:
- * For consistency and type safety, component emits should be exported as
- * an interface named '[ComponentName]Emits' and declared using defineEmits.
- *
- * Incorrect:
- * const emit = defineEmits<{ (e: 'change', id: number): void }>()
- *
- * Correct:
- * export interface MyComponentEmits {
- * change: [id: number]
- * update: [value: string]
- * }
- * const emit = defineEmits<MyComponentEmits>()
- */
-export const componentEmitsStandard = defineRule({
+export const componentEmitsStandard = {
   meta: {
     type: "problem",
     docs: {
@@ -128,4 +109,4 @@ export const componentEmitsStandard = defineRule({
       }
     }
   }
-})
+}
