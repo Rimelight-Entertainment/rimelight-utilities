@@ -2,7 +2,7 @@ import { defineConfig } from "oxlint"
 
 export default defineConfig({
   jsPlugins: [
-    "./.rimelight-utilities/.oxlint/rimelight.js"
+    "./.oxlint/rimelight.js"
   ],
   ignorePatterns: [
     ".drizzle/",

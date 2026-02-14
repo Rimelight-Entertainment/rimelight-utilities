@@ -67,7 +67,6 @@ export const componentEmitsStandard = {
                   // Handle Case: (e: 'change', id: number): void
                   if (member.type === "TSCallSignatureDeclaration") {
                     const eventParam = member.params[0]
-                    const remainingParams = member.params.slice(1)
 
                     if (
                       (eventParam && eventParam.type === "TSParameterProperty") ||

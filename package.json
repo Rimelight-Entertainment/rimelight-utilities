@@ -16,6 +16,6 @@
     "oxlint": "^1.47.0"
   },
   "scripts": {
-    "prepare": "husky"
-  }
+    "prepare": "husky",
+    "lint": "oxlint ."  }
 }
