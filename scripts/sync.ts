@@ -13,6 +13,7 @@ const SYNC_CONFIG: Record<string, string[]> = {
   ".gitignore": [".gitignore"],
   ".editorconfig": [".editorconfig"],
   ".antigravity": [".antigravity"],
+  ".gemini": [".gemini"],
   "AGENTS.md": ["GEMINI.md", "CLAUDE.md", "CURSOR.md", ".cursorrules"],
   ".husky": [".husky"],
   "commitlint.config.ts": ["commitlint.config.ts"],
@@ -20,6 +21,9 @@ const SYNC_CONFIG: Record<string, string[]> = {
   ".antigravity/rules": [".antigravity/rules"],
   ".antigravity/workflows": [".antigravity/workflows"],
   ".antigravity/skills": [".antigravity/skills"],
+  ".gemini/rules": [".gemini/rules"],
+  ".gemini/workflows": [".gemini/workflows"],
+  ".gemini/skills": [".gemini/skills"],
 };
 
 async function runSync() {
