@@ -1,6 +1,4 @@
-import { defineConfig } from "oxlint";
-
-export default defineConfig({
+export default {
   jsPlugins: [
     "./.oxlint/rimelight.js"
   ],
@@ -17,4 +15,4 @@ export default defineConfig({
     "rimelight/iconify-standard-format": "warn",
     "rimelight/vue-sfc-structure": "warn"
   },
-});
+};
