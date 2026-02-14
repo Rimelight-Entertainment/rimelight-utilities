@@ -1,27 +1,4 @@
-import {defineRule} from "oxlint"
-
-/**
- * Rule: component-props-standard
- *
- * Rationale:
- * For consistency and to leverage Vue's reactive destructuring, component props
- * should be exported as an interface named '[ComponentName]Props' and declared
- * using destructuring in defineProps.
- *
- * Incorrect:
- * const props = withDefaults(defineProps<{
- *   name: string
- * }>(), {
- *   name: "Component"
- * })
- *
- * Correct:
- * export interface MyComponentProps {
- *   name: string
- * }
- * const { name = "Component" } = defineProps<MyComponentProps>()
- */
-export const componentPropsStandard = defineRule({
+export const componentPropsStandard = {
   meta: {
     type: "problem",
     docs: {
@@ -210,4 +187,4 @@ export const componentPropsStandard = defineRule({
       }
     }
   }
-})
+}
