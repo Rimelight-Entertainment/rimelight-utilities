@@ -9,6 +9,5 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "noEmit": true
-  },
-  "include": ["**/*.ts", "types/**/*.d.ts"]
+  }
 }

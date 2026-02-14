@@ -1,6 +1,8 @@
-export default {
+import { defineConfig } from "oxlint"
+
+export default defineConfig({
   jsPlugins: [
-    "./.oxlint/rimelight.js"
+    "./.rimelight-utilities/.oxlint/rimelight.js"
   ],
   ignorePatterns: [
     ".drizzle/",
@@ -14,5 +16,5 @@ export default {
     "rimelight/component-props-standard": "warn",
     "rimelight/iconify-standard-format": "warn",
     "rimelight/vue-sfc-structure": "warn"
-  },
-};
+  }
+})

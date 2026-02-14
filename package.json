@@ -12,8 +12,8 @@
     "@commitlint/cli": "^20.4.1",
     "@commitlint/config-conventional": "^20.4.1",
     "@types/node": "latest",
-    "oxlint": "^1.47.0",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "oxlint": "^1.47.0"
   },
   "scripts": {
     "prepare": "husky"
