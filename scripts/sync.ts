@@ -17,7 +17,7 @@ const SYNC_CONFIG: Record<string, string[]> = {
   "AGENTS.md": ["GEMINI.md", "CLAUDE.md", "CURSOR.md", ".cursorrules"],
   ".husky": [".husky"],
   "commitlint.config.ts": ["commitlint.config.ts"],
-  "oxlint-shared-config.ts": ["oxlint-shared-config.ts"],
+  "types": ["types"],
   ".antigravity/rules": [".antigravity/rules"],
   ".antigravity/workflows": [".antigravity/workflows"],
   ".antigravity/skills": [".antigravity/skills"],
