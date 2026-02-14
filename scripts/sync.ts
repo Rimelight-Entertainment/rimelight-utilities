@@ -12,7 +12,8 @@ const SYNC_CONFIG: Record<string, string[]> = {
   "bunfig.toml": ["bunfig.toml"],
   ".gitignore": [".gitignore"],
   ".editorconfig": [".editorconfig"],
-  "AGENTS.md": ["CLAUDE.md", "CURSOR.md", ".cursorrules"],
+  ".antigravity": [".antigravity"],
+  "AGENTS.md": ["GEMINI.md", "CLAUDE.md", "CURSOR.md", ".cursorrules"],
   ".husky": [".husky"],
   "commitlint.config.ts": ["commitlint.config.ts"],
 };

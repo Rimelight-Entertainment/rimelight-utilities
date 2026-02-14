@@ -1,18 +1,20 @@
-{
-  "jsPlugins": [
+import { defineConfig } from "oxlint";
+
+export default defineConfig({
+  jsPlugins: [
     "./.oxlint/rimelight.js"
   ],
-  "ignorePatterns": [
+  ignorePatterns: [
     ".drizzle/",
     "src-tauri/",
     "backups/"
   ],
-  "rules": {
+  rules: {
     "no-empty-pattern": "off",
     "rimelight/prefer-validated-getters": "warn",
     "rimelight/component-props-standard": "warn",
     "rimelight/component-emits-standard": "warn",
     "rimelight/iconify-standard-format": "warn",
     "rimelight/vue-sfc-structure": "warn"
-  }
-}
+  },
+});
