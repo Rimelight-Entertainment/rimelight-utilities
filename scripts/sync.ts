@@ -16,6 +16,7 @@ const SYNC_CONFIG: Record<string, string[]> = {
   "AGENTS.md": ["GEMINI.md", "CLAUDE.md", "CURSOR.md", ".cursorrules"],
   ".husky": [".husky"],
   "commitlint.config.ts": ["commitlint.config.ts"],
+  "oxlint-shared-config.ts": ["oxlint-shared-config.ts"],
 };
 
 async function runSync() {
