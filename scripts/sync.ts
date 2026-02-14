@@ -17,6 +17,9 @@ const SYNC_CONFIG: Record<string, string[]> = {
   ".husky": [".husky"],
   "commitlint.config.ts": ["commitlint.config.ts"],
   "oxlint-shared-config.ts": ["oxlint-shared-config.ts"],
+  ".antigravity/rules": [".antigravity/rules"],
+  ".antigravity/workflows": [".antigravity/workflows"],
+  ".antigravity/skills": [".antigravity/skills"],
 };
 
 async function runSync() {
