@@ -38,7 +38,7 @@ export const iconifyStandardFormat = {
     }
 
     return {
-      // Targets Vue/JSX attributes: <Icon name="i-lucide-user" />
+      // Targets Vue/JSX attributes: <Icon name="lucide:user" />
       JSXAttribute(node) {
         const name = node.name.name
         if ((name === "name" || name === "icon") && node.value?.type === "Literal") {
