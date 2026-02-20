@@ -16,6 +16,10 @@ export const vueSfcStructure = {
   create(context) {
     if (!context.filename.endsWith(".vue")) return {}
 
+    // Only enforce this rule for files under a 'components' folder
+    const normalizedPath = context.filename.replace(/\\/g, "/");
+    if (!normalizedPath.includes("/components/")) return {}
+
     return {
       Program(node) {
         const sourceCode = context.sourceCode
