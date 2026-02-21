@@ -23,7 +23,7 @@ export const vueComponentStructure = {
         const sourceCode = context.sourceCode
         const fullText = sourceCode.getText()
 
-        // Robust check for <script setup> context
+        // Check for <script setup> context
         let isSetup = false;
         try {
           const originalFile = fs.readFileSync(context.filename, "utf-8");
