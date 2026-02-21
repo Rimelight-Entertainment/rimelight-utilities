@@ -46,7 +46,7 @@ export const vueComponentStructure = {
 
           if (regionIndex === -1) {
             context.report({
-              node,
+              loc: { line: 1, column: 0 },
               messageId: "missingRegion",
               data: { region }
             });
@@ -54,7 +54,7 @@ export const vueComponentStructure = {
             if (regionIndex < lastFoundIndex) {
               const prevRegion = expectedRegions.slice(0, i).filter(r => fullText.includes(`/* region ${r} */`)).pop() || expectedRegions[0];
               context.report({
-                node,
+                loc: { line: 1, column: 0 },
                 messageId: "invalidOrder",
                 data: { current: region, previous: prevRegion }
               });
