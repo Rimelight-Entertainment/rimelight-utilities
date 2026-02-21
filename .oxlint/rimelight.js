@@ -2,7 +2,8 @@ import { componentPropsStandard } from "./rules/componentPropsStandard.js"
 import { componentEmitsStandard } from "./rules/componentEmitsStandard.js"
 import { preferValidatedGetters } from "./rules/preferValidatedGetters.js"
 import { iconifyStandardFormat } from "./rules/iconifyStandardFormat.js"
-import { vueSfcStructure } from "./rules/vueSfcStructure.js"
+import { vueComponentStructure } from "./rules/vueComponentStructure.js"
+import {vuePageStructure} from "./rules/vuePageStructure.js";
 
 export default {
   meta: {
@@ -13,6 +14,7 @@ export default {
     "component-emits-standard": componentEmitsStandard,
     "prefer-validated-getters": preferValidatedGetters,
     "iconify-standard-format": iconifyStandardFormat,
-    "vue-sfc-structure": vueSfcStructure
+    "vue-component-structure": vueComponentStructure,
+    "vue-page-structure": vuePageStructure
   }
 }

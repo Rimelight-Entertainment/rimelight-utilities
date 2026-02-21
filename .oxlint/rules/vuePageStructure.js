@@ -1,9 +1,9 @@
-export const vueSfcStructure = {
+export const vuePageStructure = {
   meta: {
     type: "layout",
     docs: {
       description:
-        "Smart SFC structure rule that enforces regional comments and ordering.",
+        "Enforces regional comments and ordering for Vue pages, excluding components.",
       category: "Style",
       recommended: true
     },
@@ -16,9 +16,13 @@ export const vueSfcStructure = {
   create(context) {
     if (!context.filename.endsWith(".vue")) return {}
 
-    // Only enforce this rule for files under a 'components' folder
     const normalizedPath = context.filename.replace(/\\/g, "/");
-    if (!normalizedPath.includes("/components/")) return {}
+
+    // Check if the file is in /pages but NOT in /components
+    const isInPages = normalizedPath.includes("/pages/");
+    const isInComponents = normalizedPath.includes("/components/");
+
+    if (!isInPages || isInComponents) return {}
 
     return {
       Program(node) {
@@ -26,12 +30,8 @@ export const vueSfcStructure = {
         const fullText = sourceCode.getText()
 
         const expectedRegions = [
-          "Props",
-          "Emits",
-          "Slots",
-          "Styles",
-          "Meta",
           "State",
+          "Meta",
           "Lifecycle",
           "Logic"
         ];
@@ -51,14 +51,17 @@ export const vueSfcStructure = {
             });
           } else {
             if (regionIndex < lastFoundIndex) {
-              const prevRegion = expectedRegions.slice(0, i).filter(r => fullText.includes(`/* region ${r} */`)).pop() || expectedRegions[0];
+              const prevRegion = expectedRegions
+                .slice(0, i)
+                .filter(r => fullText.includes(`/* region ${r} */`))
+                .pop() || expectedRegions[0];
+
               context.report({
                 node,
                 messageId: "invalidOrder",
                 data: { current: region, previous: prevRegion }
               });
             }
-            // Update lastFoundIndex to current, so we can check subsequent regions
             lastFoundIndex = Math.max(lastFoundIndex, regionIndex);
           }
         }

@@ -19,6 +19,7 @@ export default defineConfig({
     "rimelight/component-emits-standard": "warn",
     "rimelight/component-props-standard": "warn",
     "rimelight/iconify-standard-format": "warn",
-    "rimelight/vue-sfc-structure": "warn"
+    "rimelight/vue-component-structure": "warn",
+    "rimelight/vue-page-structure": "warn"
   }
 })
