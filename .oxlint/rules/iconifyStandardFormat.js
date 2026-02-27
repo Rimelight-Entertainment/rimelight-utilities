@@ -37,19 +37,23 @@ export const iconifyStandardFormat = {
       }
     }
 
+    function isIconPropertyName(name) {
+      return name === "name" || name === "icon" || name.endsWith("Icon")
+    }
+
     return {
-      // Targets Vue/JSX attributes: <Icon name="lucide:user" />
+      // Targets Vue/JSX attributes: <Icon name="lucide:user" /> or <Button trailingIcon="i-lucide-user" />
       JSXAttribute(node) {
         const name = node.name.name
-        if ((name === "name" || name === "icon") && node.value?.type === "Literal") {
+        if (isIconPropertyName(name) && node.value?.type === "Literal") {
           checkAndFix(node.value, node.value.value)
         }
       },
 
-      // Targets JS/TS Object properties: { icon: "i-mdi-home" }
+      // Targets JS/TS Object properties: { icon: "i-mdi-home" } or { trailingIcon: "i-lucide-user" }
       Property(node) {
         const keyName = node.key.type === "Identifier" ? node.key.name : node.key.value
-        if ((keyName === "name" || keyName === "icon") && node.value.type === "Literal") {
+        if (isIconPropertyName(keyName) && node.value.type === "Literal") {
           checkAndFix(node.value, node.value.value)
         }
       }
