@@ -9,7 +9,7 @@
 - **Styling:** Tailwind CSS 4, Nuxt UI (v3+), Tailwind Variants
 - **Language:** TypeScript (Strict)
 - **Database:** PostgreSQL 18, Drizzle ORM (UUIDv7)
-- **Environment:** Windows 11, Webstorm IDE
+- **Environment:** Windows 11, Powershell, Webstorm IDE
 - **Linting/Formatting:** Oxlint, Oxfmt (Prettier-compatible)
 
 ## Quick Reference
@@ -20,6 +20,13 @@ Always use `bun` to run scripts:
 
 - **Check everything:** `bun run check` (types, linting, formatting)
 - **Type check only:** `bun run typecheck`
+
+## Environment & Shell
+
+- **OS:** Always assume Windows 11 PowerShell.
+- **Chain Commands:** Always use `;` to chain commands instead of `&&`.
+  - **Correct:** `bun install; bun run dev`
+  - **Incorrect:** `bun install && bun run dev`
 
 ### Critical Patterns
 

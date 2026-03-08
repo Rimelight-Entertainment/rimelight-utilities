@@ -1,44 +1,47 @@
-# Global Rules for Rimelight Development
+# AI Coding Instructions
 
-## Code Style & Architecture
-- Always follow the existing code patterns in the project
-- Maintain consistency with the established architecture
-- Prefer composition over inheritance where possible
-- Follow the DRY (Don't Repeat Yourself) principle
+> Expert AI coding assistant for a production-grade Nuxt 3 application using Bun, PostgreSQL, and TypeScript.
 
-## Naming Conventions
-- Use camelCase for variable and function names
-- Use PascalCase for component and class names
-- Use UPPER_SNAKE_CASE for constants
-- Use kebab-case for file names
+## Tech Stack
 
-## TypeScript Best Practices
-- Always provide type annotations for function parameters and return types
-- Use interfaces over types for object shapes
-- Prefer readonly arrays and objects when mutation is not intended
-- Use strict null checks and handle nullable types appropriately
+- **Runtime:** Bun
+- **Framework:** Nuxt 3 (Nightly), Vue 3
+- **Styling:** Tailwind CSS 4, Nuxt UI (v3+), Tailwind Variants
+- **Language:** TypeScript (Strict)
+- **Database:** PostgreSQL 18, Drizzle ORM (UUIDv7)
+- **Environment:** Windows 11, Powershell, Webstorm IDE
+- **Linting/Formatting:** Oxlint, Oxfmt (Prettier-compatible)
 
-## Vue/Nuxt Specific Guidelines
-- Follow Vue Style Guide recommendations
-- Use Composition API with `<script setup>` syntax
-- Organize component props in interfaces
-- Use descriptive names for slots and emits
-- Follow the SFC (Single File Component) structure with proper ordering
+## Quick Reference
 
-## Testing
-- Write unit tests for business logic
-- Use meaningful test descriptions
-- Follow AAA (Arrange, Act, Assert) pattern
-- Mock external dependencies appropriately
+### Build Commands
 
-## Performance
-- Optimize for minimal re-renders
-- Use computed properties for derived state
-- Implement proper caching strategies
-- Lazy-load components when appropriate
+Always use `bun` to run scripts:
 
-## Security
-- Sanitize user inputs
-- Validate data at boundaries
-- Follow OWASP security guidelines
-- Never expose sensitive information in client-side code
+- **Check everything:** `bun run check` (types, linting, formatting)
+- **Type check only:** `bun run typecheck`
+
+## Environment & Shell
+
+- **OS:** Always assume Windows 11 PowerShell.
+- **Chain Commands:** Always use `;` to chain commands instead of `&&`.
+  - **Correct:** `bun install; bun run dev`
+  - **Incorrect:** `bun install && bun run dev`
+
+### Critical Patterns
+
+1. **Data Fetching:** Use `useApi` / `$api` (not `useFetch` / `$fetch`)
+2. **Shared State:** Use `useState()` (not `ref()`) in composables
+3. **Component Prefix:** Use `ID` prefix for project-specific components
+4. **IDs:** Always use UUIDv7 for database primary keys
+
+## Detailed Rules
+
+For comprehensive guidelines, see:
+
+- [TypeScript Conventions](./.agent/rules/typescript-conventions.md) - Strict typing, interfaces, no enums, no classes
+- [Component Architecture](./.agent/rules/component-architecture.md) - Script setup order, naming, prop patterns
+- [Nuxt Specifics](./.agent/rules/nuxt-specifics.md) - Composition API, auto-imports, SSR safety, data fetching
+- [UI & Styling](./.agent/rules/ui-styling.md) - Tailwind 4, Nuxt UI components, theme variables
+- [Data Management](./.agent/rules/data-management.md) - PostgreSQL, Drizzle ORM, server API patterns
+- [Workflow](./.agent/rules/workflow.md) - Solution strategy, code delivery, verification steps
