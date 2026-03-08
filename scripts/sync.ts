@@ -2,7 +2,7 @@ import { cp } from "node:fs/promises";
 import { join } from "node:path";
 
 const PROJECT_ROOT = process.cwd();
-const SHARED_ROOT = join(PROJECT_ROOT, ".rimelight-utilities");
+const SHARED_ROOT = join(PROJECT_ROOT, "rimelight-utilities");
 
 /**
  * Define sync mappings.
